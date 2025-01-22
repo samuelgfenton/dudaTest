@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "URL": "__all__",
+    "PropertyName": "[hy - Armenian] Sam Fentons Relaxing Resort",
+    "HeaderImageURL": "https://tbb-prod-apac.imgix.net/attachments/rate_plan_photos/hero_images/109323/41961dab-a83d-4ba3-a0bc-dac0112f863d.jpg",
+    "AddressCountry": "[hy - Armenian] Australia",
+    "AddressCity": "[hy - Armenian] Sydney",
+    "AddressRegion": "[hy - Armenian] NSW",
+    "AddressStreet": "[hy - Armenian] 123 Fake Street",
+    "AddressPostcode": "[hy - Armenian] 2000",
+    "PhoneNumber": "123456789",
+    "AboutUsText": "[hy - Armenian] This is the about us text",
+    "PrivacyPolicyText": "[hy - Armenian] This is the privacy policy text",
+    "TermsAndConditionsText": "[hy - Armenian] This is the terms and conditions text",
+    "EmailEnquiryAddress": "sam.fenton@siteminder.com",
+    "BookingEngineDomain": "https://book-directonline.com",
+    "BookingEngineChannelCode": "SamFentonsRelaxingResort"
+  }
+]

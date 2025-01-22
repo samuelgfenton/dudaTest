@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "URL": "__all__",
+    "PropertyName": "[hu - Hungarian] Sam Fentons Relaxing Resort",
+    "HeaderImageURL": "https://tbb-prod-apac.imgix.net/attachments/rate_plan_photos/hero_images/109323/41961dab-a83d-4ba3-a0bc-dac0112f863d.jpg",
+    "AddressCountry": "[hu - Hungarian] Australia",
+    "AddressCity": "[hu - Hungarian] Sydney",
+    "AddressRegion": "[hu - Hungarian] NSW",
+    "AddressStreet": "[hu - Hungarian] 123 Fake Street",
+    "AddressPostcode": "[hu - Hungarian] 2000",
+    "PhoneNumber": "123456789",
+    "AboutUsText": "[hu - Hungarian] This is the about us text",
+    "PrivacyPolicyText": "[hu - Hungarian] This is the privacy policy text",
+    "TermsAndConditionsText": "[hu - Hungarian] This is the terms and conditions text",
+    "EmailEnquiryAddress": "sam.fenton@siteminder.com",
+    "BookingEngineDomain": "https://book-directonline.com",
+    "BookingEngineChannelCode": "SamFentonsRelaxingResort"
+  }
+]

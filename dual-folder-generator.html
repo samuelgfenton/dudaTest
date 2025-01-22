@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Language Collection Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .dropZone {
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        .dropZone.dragover {
+            background-color: #e1e1e1;
+            border-color: #999;
+        }
+        .dropZone.loaded {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        #log {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .error { color: red; }
+        .success { color: green; }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .file-status {
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Language Collection Generator</h1>
+    
+    <div id="roomsDropZone" class="dropZone">
+        Drop your rooms collection.json file here or click to select
+        <input type="file" id="roomsFileInput" style="display: none" accept=".json">
+        <div class="file-status" id="roomsStatus"></div>
+    </div>
+
+    <div id="propertyDropZone" class="dropZone">
+        Drop your property collection.json file here or click to select
+        <input type="file" id="propertyFileInput" style="display: none" accept=".json">
+        <div class="file-status" id="propertyStatus"></div>
+    </div>
+
+    <button id="generateBtn" disabled>Generate Language Folders</button>
+    <div id="log"></div>
+
+    <script>
+        // Duda supported language codes with descriptions
+        const languageData = [
+            { code: 'ar', name: 'Arabic' },
+            { code: 'az', name: 'Azerbaijani' },
+            { code: 'be', name: 'Belarusian' },
+            { code: 'bg', name: 'Bulgarian' },
+            { code: 'bs-ba', name: 'Bosnian' },
+            { code: 'ca', name: 'Catalan' },
+            { code: 'cs', name: 'Czech' },
+            { code: 'cy', name: 'Welsh' },
+            { code: 'da', name: 'Danish' },
+            { code: 'de', name: 'German' },
+            { code: 'el', name: 'Greek' },
+            { code: 'en', name: 'English' },
+            { code: 'en-au', name: 'English (Australia)' },
+            { code: 'en-ca', name: 'English (Canada)' },
+            { code: 'en-gb', name: 'English (UK)' },
+            { code: 'es', name: 'Spanish' },
+            { code: 'es-ar', name: 'Spanish (Argentina)' },
+            { code: 'es-cl', name: 'Spanish (Chile)' },
+            { code: 'es-co', name: 'Spanish (Colombia)' },
+            { code: 'es-cr', name: 'Spanish (Costa Rica)' },
+            { code: 'es-mx', name: 'Spanish (Mexico)' },
+            { code: 'et', name: 'Estonian' },
+            { code: 'eu', name: 'Basque' },
+            { code: 'fa', name: 'Persian' },
+            { code: 'fi', name: 'Finnish' },
+            { code: 'fr', name: 'French' },
+            { code: 'fr-ca', name: 'French (Canada)' },
+            { code: 'gl', name: 'Galician' },
+            { code: 'he', name: 'Hebrew' },
+            { code: 'hi', name: 'Hindi' },
+            { code: 'hu', name: 'Hungarian' },
+            { code: 'hy', name: 'Armenian' },
+            { code: 'id', name: 'Indonesian' },
+            { code: 'is', name: 'Icelandic' },
+            { code: 'it', name: 'Italian' },
+            { code: 'ja', name: 'Japanese' },
+            { code: 'ka', name: 'Georgian' },
+            { code: 'ko', name: 'Korean' },
+            { code: 'lv', name: 'Latvian' },
+            { code: 'mi', name: 'Maori' },
+            { code: 'mn', name: 'Mongolian' },
+            { code: 'mr', name: 'Marathi' },
+            { code: 'nb', name: 'Norwegian Bokmål' },
+            { code: 'nl', name: 'Dutch' },
+            { code: 'pa', name: 'Punjabi' },
+            { code: 'pl', name: 'Polish' },
+            { code: 'ps', name: 'Pashto' },
+            { code: 'pt', name: 'Portuguese' },
+            { code: 'pt-br', name: 'Portuguese (Brazil)' },
+            { code: 'ro', name: 'Romanian' },
+            { code: 'ru', name: 'Russian' },
+            { code: 'sk', name: 'Slovak' },
+            { code: 'sl', name: 'Slovenian' },
+            { code: 'sq', name: 'Albanian' },
+            { code: 'sr-rs', name: 'Serbian' },
+            { code: 'sv', name: 'Swedish' },
+            { code: 'sw', name: 'Swahili' },
+            { code: 'ta', name: 'Tamil' },
+            { code: 'th', name: 'Thai' },
+            { code: 'tl', name: 'Tagalog' },
+            { code: 'tr', name: 'Turkish' },
+            { code: 'uk', name: 'Ukrainian' },
+            { code: 'vi', name: 'Vietnamese' },
+            { code: 'zh', name: 'Chinese (Simplified)' },
+            { code: 'zh-tw', name: 'Chinese (Traditional)' }
+        ];
+
+        let roomsData = null;
+        let propertyData = null;
+        const roomsDropZone = document.getElementById('roomsDropZone');
+        const propertyDropZone = document.getElementById('propertyDropZone');
+        const roomsFileInput = document.getElementById('roomsFileInput');
+        const propertyFileInput = document.getElementById('propertyFileInput');
+        const generateBtn = document.getElementById('generateBtn');
+        const logDiv = document.getElementById('log');
+        const roomsStatus = document.getElementById('roomsStatus');
+        const propertyStatus = document.getElementById('propertyStatus');
+
+        function updateGenerateButton() {
+            generateBtn.disabled = !(roomsData && propertyData);
+        }
+
+        function log(message, isError = false) {
+            const div = document.createElement('div');
+            div.textContent = message;
+            div.className = isError ? 'error' : 'success';
+            logDiv.appendChild(div);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function handleRoomsFile(file) {
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                try {
+                    roomsData = JSON.parse(e.target.result);
+                    roomsDropZone.classList.add('loaded');
+                    roomsStatus.textContent = `✓ Loaded ${roomsData.length} rooms`;
+                    roomsStatus.className = 'file-status success';
+                    updateGenerateButton();
+                    log(`Successfully loaded rooms JSON with ${roomsData.length} rooms`);
+                } catch (error) {
+                    roomsData = null;
+                    roomsDropZone.classList.remove('loaded');
+                    roomsStatus.textContent = '✗ Error loading file';
+                    roomsStatus.className = 'file-status error';
+                    updateGenerateButton();
+                    log('Error parsing rooms JSON file: ' + error.message, true);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function handlePropertyFile(file) {
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                try {
+                    propertyData = JSON.parse(e.target.result);
+                    propertyDropZone.classList.add('loaded');
+                    propertyStatus.textContent = '✓ Property file loaded';
+                    propertyStatus.className = 'file-status success';
+                    updateGenerateButton();
+                    log('Successfully loaded property JSON');
+                } catch (error) {
+                    propertyData = null;
+                    propertyDropZone.classList.remove('loaded');
+                    propertyStatus.textContent = '✗ Error loading file';
+                    propertyStatus.className = 'file-status error';
+                    updateGenerateButton();
+                    log('Error parsing property JSON file: ' + error.message, true);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Setup drag and drop for both zones
+        [roomsDropZone, propertyDropZone].forEach(dropZone => {
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('dragover');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                const file = e.dataTransfer.files[0];
+                if (file.type === "application/json") {
+                    if (dropZone.id === 'roomsDropZone') {
+                        handleRoomsFile(file);
+                    } else {
+                        handlePropertyFile(file);
+                    }
+                } else {
+                    log('Please drop a JSON file', true);
+                }
+            });
+        });
+
+        // Click to select file handlers
+        roomsDropZone.addEventListener('click', () => roomsFileInput.click());
+        propertyDropZone.addEventListener('click', () => propertyFileInput.click());
+
+        roomsFileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleRoomsFile(file);
+        });
+
+        propertyFileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handlePropertyFile(file);
+        });
+
+        generateBtn.addEventListener('click', async () => {
+            if (!roomsData || !propertyData) {
+                log('Both JSON files must be loaded', true);
+                return;
+            }
+
+            const zip = new JSZip();
+            let successCount = 0;
+
+            languageData.forEach(lang => {
+                try {
+                    // Create modified rooms JSON for this language
+                    const langRoomsData = roomsData.map(room => ({
+                        ...room,
+                        Room_Name: `[${lang.code} - ${lang.name}] ${room.Room_Name}`,
+                        Room_Description: `[${lang.code} - ${lang.name}] ${room.Room_Description}`
+                    }));
+
+                    // Create modified property JSON for this language
+                    const langPropertyData = propertyData.map(property => ({
+                        ...property,
+                        PropertyName: `[${lang.code} - ${lang.name}] ${property.PropertyName}`,
+                        AddressCity: `[${lang.code} - ${lang.name}] ${property.AddressCity}`,
+                        AddressCountry: `[${lang.code} - ${lang.name}] ${property.AddressCountry}`,
+                        AddressRegion: `[${lang.code} - ${lang.name}] ${property.AddressRegion}`,
+                        AddressStreet: `[${lang.code} - ${lang.name}] ${property.AddressStreet}`,
+                        AddressPostcode: `[${lang.code} - ${lang.name}] ${property.AddressPostcode}`,
+                        AboutUsText: `[${lang.code} - ${lang.name}] ${property.AboutUsText}`,
+                        PrivacyPolicyText: `[${lang.code} - ${lang.name}] ${property.PrivacyPolicyText}`,
+                        TermsAndConditionsText: `[${lang.code} - ${lang.name}] ${property.TermsAndConditionsText}`
+                    }));
+
+                    // Add both files to zip in appropriate folder
+                    const langFolder = zip.folder("collections").folder(lang.code);
+                    langFolder.file("roomsCollection.json", JSON.stringify(langRoomsData, null, 2));
+                    langFolder.file("propertyCollection.json", JSON.stringify(langPropertyData, null, 2));
+
+                    successCount++;
+                    log(`Created ${lang.code} folder with both collection files (${lang.name})`);
+                } catch (error) {
+                    log(`Error creating files for language ${lang.code}: ${error.message}`, true);
+                }
+            });
+
+            log(`\nProcess completed!`);
+            log(`Successfully created ${successCount} language folders out of ${languageData.length}`);
+            log(`Each folder contains both collection files`);
+
+            // Generate and download zip file
+            try {
+                const content = await zip.generateAsync({type: "blob"});
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(content);
+                link.download = "collections.zip";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                log('Downloaded zip file successfully');
+            } catch (error) {
+                log('Error generating zip file: ' + error.message, true);
+            }
+        });
+    </script>
+</body>
+</html>

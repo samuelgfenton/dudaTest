@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "URL": "__all__",
+    "PropertyName": "[tr - Turkish] Sam Fentons Relaxing Resort",
+    "HeaderImageURL": "https://tbb-prod-apac.imgix.net/attachments/rate_plan_photos/hero_images/109323/41961dab-a83d-4ba3-a0bc-dac0112f863d.jpg",
+    "AddressCountry": "[tr - Turkish] Australia",
+    "AddressCity": "[tr - Turkish] Sydney",
+    "AddressRegion": "[tr - Turkish] NSW",
+    "AddressStreet": "[tr - Turkish] 123 Fake Street",
+    "AddressPostcode": "[tr - Turkish] 2000",
+    "PhoneNumber": "123456789",
+    "AboutUsText": "[tr - Turkish] This is the about us text",
+    "PrivacyPolicyText": "[tr - Turkish] This is the privacy policy text",
+    "TermsAndConditionsText": "[tr - Turkish] This is the terms and conditions text",
+    "EmailEnquiryAddress": "sam.fenton@siteminder.com",
+    "BookingEngineDomain": "https://book-directonline.com",
+    "BookingEngineChannelCode": "SamFentonsRelaxingResort"
+  }
+]

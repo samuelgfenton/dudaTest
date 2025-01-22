@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "URL": "__all__",
+    "PropertyName": "[sv - Swedish] Sam Fentons Relaxing Resort",
+    "HeaderImageURL": "https://tbb-prod-apac.imgix.net/attachments/rate_plan_photos/hero_images/109323/41961dab-a83d-4ba3-a0bc-dac0112f863d.jpg",
+    "AddressCountry": "[sv - Swedish] Australia",
+    "AddressCity": "[sv - Swedish] Sydney",
+    "AddressRegion": "[sv - Swedish] NSW",
+    "AddressStreet": "[sv - Swedish] 123 Fake Street",
+    "AddressPostcode": "[sv - Swedish] 2000",
+    "PhoneNumber": "123456789",
+    "AboutUsText": "[sv - Swedish] This is the about us text",
+    "PrivacyPolicyText": "[sv - Swedish] This is the privacy policy text",
+    "TermsAndConditionsText": "[sv - Swedish] This is the terms and conditions text",
+    "EmailEnquiryAddress": "sam.fenton@siteminder.com",
+    "BookingEngineDomain": "https://book-directonline.com",
+    "BookingEngineChannelCode": "SamFentonsRelaxingResort"
+  }
+]

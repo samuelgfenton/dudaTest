@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "URL": "__all__",
+    "PropertyName": "[pt-br - Portuguese (Brazil)] Sam Fentons Relaxing Resort",
+    "HeaderImageURL": "https://tbb-prod-apac.imgix.net/attachments/rate_plan_photos/hero_images/109323/41961dab-a83d-4ba3-a0bc-dac0112f863d.jpg",
+    "AddressCountry": "[pt-br - Portuguese (Brazil)] Australia",
+    "AddressCity": "[pt-br - Portuguese (Brazil)] Sydney",
+    "AddressRegion": "[pt-br - Portuguese (Brazil)] NSW",
+    "AddressStreet": "[pt-br - Portuguese (Brazil)] 123 Fake Street",
+    "AddressPostcode": "[pt-br - Portuguese (Brazil)] 2000",
+    "PhoneNumber": "123456789",
+    "AboutUsText": "[pt-br - Portuguese (Brazil)] This is the about us text",
+    "PrivacyPolicyText": "[pt-br - Portuguese (Brazil)] This is the privacy policy text",
+    "TermsAndConditionsText": "[pt-br - Portuguese (Brazil)] This is the terms and conditions text",
+    "EmailEnquiryAddress": "sam.fenton@siteminder.com",
+    "BookingEngineDomain": "https://book-directonline.com",
+    "BookingEngineChannelCode": "SamFentonsRelaxingResort"
+  }
+]

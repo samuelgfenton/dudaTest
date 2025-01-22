@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "URL": "__all__",
+    "PropertyName": "[ko - Korean] Sam Fentons Relaxing Resort",
+    "HeaderImageURL": "https://tbb-prod-apac.imgix.net/attachments/rate_plan_photos/hero_images/109323/41961dab-a83d-4ba3-a0bc-dac0112f863d.jpg",
+    "AddressCountry": "[ko - Korean] Australia",
+    "AddressCity": "[ko - Korean] Sydney",
+    "AddressRegion": "[ko - Korean] NSW",
+    "AddressStreet": "[ko - Korean] 123 Fake Street",
+    "AddressPostcode": "[ko - Korean] 2000",
+    "PhoneNumber": "123456789",
+    "AboutUsText": "[ko - Korean] This is the about us text",
+    "PrivacyPolicyText": "[ko - Korean] This is the privacy policy text",
+    "TermsAndConditionsText": "[ko - Korean] This is the terms and conditions text",
+    "EmailEnquiryAddress": "sam.fenton@siteminder.com",
+    "BookingEngineDomain": "https://book-directonline.com",
+    "BookingEngineChannelCode": "SamFentonsRelaxingResort"
+  }
+]
