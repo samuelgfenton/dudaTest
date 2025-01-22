@@ -3,6 +3,7 @@
 <head>
     <title>Language Collection Generator</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Previous styles remain the same -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -201,7 +202,8 @@
                     // Create modified JSON for this language
                     const langData = originalData.map(room => ({
                         ...room,
-                        Room_Name: `[${lang.code} - ${lang.name}] ${room.Room_Name}`
+                        Room_Name: `[${lang.code} - ${lang.name}] ${room.Room_Name}`,
+                        Room_Description: `[${lang.code} - ${lang.name}] ${room.Room_Description}`
                     }));
 
                     // Add to zip in appropriate folder
