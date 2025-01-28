@@ -16,6 +16,48 @@
     "LocationInstructions": "[ca - Catalan] This is the location instructions",
     "EmailEnquiryAddress": "sam.fenton@siteminder.com",
     "BookingEngineDomain": "https://book-directonline.com",
-    "BookingEngineChannelCode": "SamFentonsRelaxingResort"
+    "BookingEngineChannelCode": "SamFentonsRelaxingResort",
+    "GalleryImages": [
+      {
+        "image": "https://tbb-prod-apac.imgix.net/attachments/property_photos/images/293650/efbea67e-00be-4d26-a5be-3b52e8d8b3e9.png",
+        "title": "",
+        "description": "",
+        "link": "",
+        "alt-text": "",
+        "link-text": ""
+      },
+      {
+        "image": "https://tbb-prod-apac.imgix.net/attachments/property_photos/images/293651/f289a79a-5e65-4463-be39-c0ce675f11ed.png",
+        "title": "",
+        "description": "",
+        "link": "",
+        "alt-text": "",
+        "link-text": ""
+      },
+      {
+        "image": "https://tbb-prod-apac.imgix.net/attachments/property_photos/images/293652/88f11904-61d4-49a9-b663-2d16940d847b.png",
+        "title": "",
+        "description": "",
+        "link": "",
+        "alt-text": "",
+        "link-text": ""
+      },
+      {
+        "image": "https://tbb-prod-apac.imgix.net/attachments/property_photos/images/293653/6058caa3-c453-4e09-a30f-71f669cf2ea0.jpg",
+        "title": "",
+        "description": "",
+        "link": "",
+        "alt-text": "",
+        "link-text": ""
+      },
+      {
+        "image": "https://tbb-prod-apac.imgix.net/attachments/property_photos/images/293654/7cc93116-07a9-45f8-aa8c-5cd3bd06d499.jpg",
+        "title": "",
+        "description": "",
+        "link": "",
+        "alt-text": "",
+        "link-text": ""
+      }
+    ]
   }
 ]
