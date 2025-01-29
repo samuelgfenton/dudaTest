@@ -97,5 +97,22 @@
         "link-text": ""
       }
     ]
+  },
+  {
+    "id": "281921",
+    "Room_Name": "[sv - Swedish] Basic Single Room ",
+    "Room_Description": "[sv - Swedish] This is the new single room for demo purposes",
+    "RoomId": "281921",
+    "Main_Image": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/1158515/1158515/69eb384d-5c81-473b-80c0-ec9083292399.jpeg",
+    "Images": [
+      {
+        "image": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/1158515/1158515/69eb384d-5c81-473b-80c0-ec9083292399.jpeg",
+        "title": "",
+        "description": "",
+        "link": "",
+        "alt-text": "",
+        "link-text": ""
+      }
+    ]
   }
 ]
