@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Windmill St Sydney Map</title>
+    
+    <!-- MapLibre GL JS CSS -->
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { 
+            position: absolute; 
+            top: 0; 
+            bottom: 0; 
+            width: 100%; 
+            height: 100%;
+        }
+        .marker {
+            width: 30px;
+            height: 30px;
+            background-color: #e74c3c;
+            border: 2px solid #c0392b;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .maplibre-popup-content {
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- MapLibre GL JS JavaScript -->
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    
+    <script>
+        // 30 Windmill St, Sydney coordinates
+        const lat = -33.8780;
+        const lng = 151.2010;
+
+        // Initialize the map with OpenStreetMap style
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: {
+                version: 8,
+                sources: {
+                    osm: {
+                        type: 'raster',
+                        tiles: [
+                            'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                        ],
+                        tileSize: 256,
+                        attribution: '© OpenStreetMap contributors'
+                    }
+                },
+                layers: [
+                    {
+                        id: 'osm',
+                        type: 'raster',
+                        source: 'osm',
+                        minzoom: 0,
+                        maxzoom: 19
+                    }
+                ]
+            },
+            center: [lng, lat],
+            zoom: 16  // Increased zoom level to better show streets
+        });
+
+        // Add navigation controls
+        map.addControl(new maplibregl.NavigationControl());
+
+        // Create a marker element
+        const markerElement = document.createElement('div');
+        markerElement.className = 'marker';
+
+        // Add marker with popup
+        new maplibregl.Marker(markerElement)
+            .setLngLat([lng, lat])
+            .setPopup(new maplibregl.Popup({ offset: 25 })
+                .setHTML('<h3>30 Windmill St</h3><p>Sydney, NSW</p>'))
+            .addTo(map);
+
+        // Wait for map to load before doing anything else
+        map.on('load', () => {
+            // Ensure marker is visible
+            map.flyTo({
+                center: [lng, lat],
+                essential: true
+            });
+        });
+    </script>
+</body>
+</html>
