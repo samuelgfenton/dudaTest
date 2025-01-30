@@ -13,7 +13,7 @@ app.get('/api/templates', async (req, res) => {
     try {
         const response = await fetch('https://api-sandbox.duda.co/api/sites/multiscreen/templates', {
             headers: {
-                'Authorization': 'Basic NmExNTEzODE6djZqVWh5QTJTb0M5'
+                'Authorization': 'xxxx'
             }
         });
         
