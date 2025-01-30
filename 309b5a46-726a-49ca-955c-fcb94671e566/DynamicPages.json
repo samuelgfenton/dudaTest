@@ -1,37 +1,47 @@
 [
-    {
-      "id": "1",
-      "Page Name": "Attractions",
-      "Content": [
-        {
-            "Title": "The High Line",
-            "Description": "The High Line is a 1.45-mile-long elevated linear park, greenway and rail trail created on a former New York Central Railroad spur on the west side of Manhattan in New York City. The High Line's design is a collaboration between James Corner Field Operations, Diller Scofidio + Renfro, and Piet Oudolf. The abandoned spur has been redesigned as a \"living system\" drawing from multiple disciplines which include landscape architecture, urban design, and ecology. Since opening in 2009, the High Line has become an icon of contemporary landscape architecture.",
-            "Image": "https://webbox.imgix.net/images/bnnnziplgzukqehx/87a6b00a-d202-4616-8f47-5aab9c2a33e1.jpg?auto=format,compress&fit=crop&crop=entropy&w=335&h=184&dpr=2&q=20"
-        },
-        {
-            "Title": "Empire State Building",
-            "Description": "The Empire State Building is an iconic Art Deco skyscraper located in Midtown Manhattan, New York City. Standing at 1,454 feet (443.2 meters) tall with 102 floors, it was the world's tallest building from its completion in 1931 until 1970 when the World Trade Center surpassed it. The building's distinctive spire was originally designed as a mooring mast for airships, though it was never used for this purpose. The limestone and granite facade features streamlined vertical lines and geometric patterns characteristic of Art Deco architecture. Its observation decks on the 86th and 102nd floors offer panoramic views of New York City and attract millions of visitors annually. The building's crown is famous for its color-changing LED light displays that commemorate various occasions and events. As one of New York's most recognizable landmarks, the Empire State Building has appeared in countless films, photographs, and artworks, perhaps most famously in King Kong (1933), and continues to be a symbol of the city's ambition and architectural innovation.",
-            "Image": "https://webbox.imgix.net/images/bnnnziplgzukqehx/5aca3f61-b4e7-49fd-8c83-7f686ef99c28.jpg?auto=format,compress&fit=crop&crop=entropy&w=335&h=184&dpr=2&q=20"
-        },
-        {
-            "Title": "Grand Central Station",
-            "Description": "Grand Central Terminal, often referred to as Grand Central Station, is a historic transportation hub and architectural masterpiece located in Midtown Manhattan at 42nd Street and Park Avenue. Opened in 1913, this Beaux-Arts landmark spans 48 acres and features a stunning Main Concourse with its iconic celestial ceiling, painted with gold leaf constellations against a turquoise background. The terminal's facade is crowned by the famous Glory of Commerce statuary group, featuring representations of Mercury, Hercules, and Minerva. The building is renowned for its meticulous architectural details, including the four-faced brass clock atop the central information booth, valued at millions of dollars, and the grand staircases modeled after those of the Paris Opera House. Beyond its architectural splendor, Grand Central serves as a vital transportation nexus, with 44 platforms on two underground levels, making it the world's largest terminal by number of platforms. The terminal also houses numerous shops, restaurants, and the famous Oyster Bar, which has been serving patrons since the building's opening. A remarkable feat of both engineering and preservation, Grand Central Terminal handles hundreds of thousands of commuters daily while maintaining its status as one of New York City's most beloved landmarks.",
-            "Image": "https://webbox.imgix.net/images/bnnnziplgzukqehx/ecd18b40-6bf3-41aa-9023-0a0fbc8414b3.jpg?auto=format,compress&fit=crop&crop=entropy&w=335&h=184&dpr=2&q=20"
-        }
-      ]
-    },
-    {
-        "id": "2",
-        "Page Name": "How to get here",
-        "Content": [
-          {
-              "Title": "Taxi",
-              "Description": "From Grand Central Terminal, getting a taxi to the City Club Hotel on West 44th Street is straightforward. Exit the terminal through the main entrance on 42nd Street and Park Avenue, where you'll find a dedicated taxi stand with a queue on the west side of the terminal near Vanderbilt Avenue. A taxi dispatcher is typically present during busy hours to help manage the line and ensure orderly service. Simply join the taxi line (yellow cabs are the official NYC taxis), and when it's your turn, tell the driver you're heading to the City Club Hotel at 55 West 44th Street, between 5th and 6th Avenues. The trip is relatively short, typically taking about 5-10 minutes depending on traffic, and should cost approximately $10-15 before tip. If you prefer to avoid potential taxi lines, you can also use ride-hailing apps like Uber or Lyft, with pickup locations clearly marked around the terminal. Many drivers prefer to pick up passengers on the Vanderbilt Avenue side of the building to avoid the heavier traffic on 42nd Street."
-          },
-          {
-              "Title": "Walking",
-              "Description": "Exit Grand Central from the main entrance on 42nd Street and turn right (west). Walk west on 42nd Street to 5th Avenue. Turn left (south) on 5th Avenue and walk two blocks to 44th Street. Turn right (west) on 44th Street - the City Club Hotel will be on your left at 55 West 44th Street, between 5th and 6th Avenues. This is approximately a 7-10 minute walk covering about 0.4 miles. The route is straightforward and well-marked, taking you through a busy and safe area of Midtown Manhattan. You'll pass several landmarks along the way, including the New York Public Library's main branch at 5th Avenue and 42nd Street. The streets are well-lit and populated at most hours, making this an easy walk even in the evening."
-        }
-        ]
+  {
+    "id": "1",
+    "Page Name": "Attractions",
+    "Content": [
+      {
+        "Title": "The High Line",
+        "Description": "The High Line is a 1.45-mile-long elevated linear park, greenway and rail trail created on a former New York Central Railroad spur on the west side of Manhattan in New York City. The High Line's design is a collaboration between James Corner Field Operations, Diller Scofidio + Renfro, and Piet Oudolf. The abandoned spur has been redesigned as a \"living system\" drawing from multiple disciplines which include landscape architecture, urban design, and ecology. Since opening in 2009, the High Line has become an icon of contemporary landscape architecture.",
+        "Image": "https://webbox.imgix.net/images/bnnnziplgzukqehx/87a6b00a-d202-4616-8f47-5aab9c2a33e1.jpg?auto=format,compress&fit=crop&crop=entropy&w=335&h=184&dpr=2&q=20",
+        "Link": "",
+        "Link Text": ""
+      },
+      {
+        "Title": "Empire State Building",
+        "Description": "The Empire State Building is an iconic Art Deco skyscraper located in Midtown Manhattan, New York City. Standing at 1,454 feet (443.2 meters) tall with 102 floors, it was the world's tallest building from its completion in 1931 until 1970 when the World Trade Center surpassed it. The building's distinctive spire was originally designed as a mooring mast for airships, though it was never used for this purpose. The limestone and granite facade features streamlined vertical lines and geometric patterns characteristic of Art Deco architecture. Its observation decks on the 86th and 102nd floors offer panoramic views of New York City and attract millions of visitors annually. The building's crown is famous for its color-changing LED light displays that commemorate various occasions and events. As one of New York's most recognizable landmarks, the Empire State Building has appeared in countless films, photographs, and artworks, perhaps most famously in King Kong (1933), and continues to be a symbol of the city's ambition and architectural innovation.",
+        "Image": "https://webbox.imgix.net/images/bnnnziplgzukqehx/5aca3f61-b4e7-49fd-8c83-7f686ef99c28.jpg?auto=format,compress&fit=crop&crop=entropy&w=335&h=184&dpr=2&q=20",
+        "Link": "",
+        "Link Text": ""
+      },
+      {
+        "Title": "Grand Central Station",
+        "Description": "Grand Central Terminal, often referred to as Grand Central Station, is a historic transportation hub and architectural masterpiece located in Midtown Manhattan at 42nd Street and Park Avenue. Opened in 1913, this Beaux-Arts landmark spans 48 acres and features a stunning Main Concourse with its iconic celestial ceiling, painted with gold leaf constellations against a turquoise background. The terminal's facade is crowned by the famous Glory of Commerce statuary group, featuring representations of Mercury, Hercules, and Minerva. The building is renowned for its meticulous architectural details, including the four-faced brass clock atop the central information booth, valued at millions of dollars, and the grand staircases modeled after those of the Paris Opera House. Beyond its architectural splendor, Grand Central serves as a vital transportation nexus, with 44 platforms on two underground levels, making it the world's largest terminal by number of platforms. The terminal also houses numerous shops, restaurants, and the famous Oyster Bar, which has been serving patrons since the building's opening. A remarkable feat of both engineering and preservation, Grand Central Terminal handles hundreds of thousands of commuters daily while maintaining its status as one of New York City's most beloved landmarks.",
+        "Image": "https://webbox.imgix.net/images/bnnnziplgzukqehx/ecd18b40-6bf3-41aa-9023-0a0fbc8414b3.jpg?auto=format,compress&fit=crop&crop=entropy&w=335&h=184&dpr=2&q=20",
+        "Link": "",
+        "Link Text": ""
       }
+    ]
+  },
+  {
+    "id": "2",
+    "Page Name": "How to get here",
+    "Content": [
+      {
+        "Title": "Taxi",
+        "Description": "From Grand Central Terminal, getting a taxi to the City Club Hotel on West 44th Street is straightforward. Exit the terminal through the main entrance on 42nd Street and Park Avenue, where you'll find a dedicated taxi stand with a queue on the west side of the terminal near Vanderbilt Avenue. A taxi dispatcher is typically present during busy hours to help manage the line and ensure orderly service. Simply join the taxi line (yellow cabs are the official NYC taxis), and when it's your turn, tell the driver you're heading to the City Club Hotel at 55 West 44th Street, between 5th and 6th Avenues. The trip is relatively short, typically taking about 5-10 minutes depending on traffic, and should cost approximately $10-15 before tip. If you prefer to avoid potential taxi lines, you can also use ride-hailing apps like Uber or Lyft, with pickup locations clearly marked around the terminal. Many drivers prefer to pick up passengers on the Vanderbilt Avenue side of the building to avoid the heavier traffic on 42nd Street.",
+        "Link": "",
+        "Link Text": ""
+      },
+      {
+        "Title": "Walking",
+        "Description": "Exit Grand Central from the main entrance on 42nd Street and turn right (west). Walk west on 42nd Street to 5th Avenue. Turn left (south) on 5th Avenue and walk two blocks to 44th Street. Turn right (west) on 44th Street - the City Club Hotel will be on your left at 55 West 44th Street, between 5th and 6th Avenues. This is approximately a 7-10 minute walk covering about 0.4 miles. The route is straightforward and well-marked, taking you through a busy and safe area of Midtown Manhattan. You'll pass several landmarks along the way, including the New York Public Library's main branch at 5th Avenue and 42nd Street. The streets are well-lit and populated at most hours, making this an easy walk even in the evening.",
+        "Link": "",
+        "Link Text": ""
+      }
+    ]
+  }
 ]
