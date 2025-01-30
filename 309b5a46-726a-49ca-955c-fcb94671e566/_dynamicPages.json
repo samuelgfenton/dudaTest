@@ -19,5 +19,19 @@
             "Image": "https://webbox.imgix.net/images/bnnnziplgzukqehx/ecd18b40-6bf3-41aa-9023-0a0fbc8414b3.jpg?auto=format,compress&fit=crop&crop=entropy&w=335&h=184&dpr=2&q=20"
         }
       ]
-    }
+    },
+    {
+        "id": "2",
+        "Page Name": "How to get here",
+        "Content": [
+          {
+              "Title": "Taxi",
+              "Description": "From Grand Central Terminal, getting a taxi to the City Club Hotel on West 44th Street is straightforward. Exit the terminal through the main entrance on 42nd Street and Park Avenue, where you'll find a dedicated taxi stand with a queue on the west side of the terminal near Vanderbilt Avenue. A taxi dispatcher is typically present during busy hours to help manage the line and ensure orderly service. Simply join the taxi line (yellow cabs are the official NYC taxis), and when it's your turn, tell the driver you're heading to the City Club Hotel at 55 West 44th Street, between 5th and 6th Avenues. The trip is relatively short, typically taking about 5-10 minutes depending on traffic, and should cost approximately $10-15 before tip. If you prefer to avoid potential taxi lines, you can also use ride-hailing apps like Uber or Lyft, with pickup locations clearly marked around the terminal. Many drivers prefer to pick up passengers on the Vanderbilt Avenue side of the building to avoid the heavier traffic on 42nd Street."
+          },
+          {
+              "Title": "Walk",
+              "Description": "Exit Grand Central from the main entrance on 42nd Street and turn right (west). Walk west on 42nd Street to 5th Avenue. Turn left (south) on 5th Avenue and walk two blocks to 44th Street. Turn right (west) on 44th Street - the City Club Hotel will be on your left at 55 West 44th Street, between 5th and 6th Avenues. This is approximately a 7-10 minute walk covering about 0.4 miles. The route is straightforward and well-marked, taking you through a busy and safe area of Midtown Manhattan. You'll pass several landmarks along the way, including the New York Public Library's main branch at 5th Avenue and 42nd Street. The streets are well-lit and populated at most hours, making this an easy walk even in the evening."
+        }
+        ]
+      }
 ]
