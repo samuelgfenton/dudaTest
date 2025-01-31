@@ -1,7 +1,19 @@
 {
     "spid": "309b5a46-726a-49ca-955c-fcb94671e566-V1",
     "userID": "samuelgfenton@gmail.com",
-    "channelCode": "samsRelaxingResort",
+    "channelCode": "samsRelaxingResort2",
     "defaultLanguage": "en",
-    "propertyName": "Sams Relaxing Resort"
+    "propertyName": "Sams Relaxing Resort2",
+    "colorHex": "#22C55E",
+    "country": "Australia",
+    "region": "NSW",
+    "city": "Sydney",
+    "street": "123 Fake Street",
+    "postcode": "2000",
+    "phoneNumber": "(02) 123456789",
+    "emailAddress": "reception@property.com",
+    "domain": "https://book-directonline.com",
+    "longitude": "151.2044558",
+    "latititude": "-33.8575337",
+    "headerImageURL": "https://tbb-prod-apac.imgix.net/attachments/rate_plan_photos/hero_images/109323/41961dab-a83d-4ba3-a0bc-dac0112f863d.jpg"
 }

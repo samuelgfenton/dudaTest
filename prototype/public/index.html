@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Websites</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="bg-white">
     <div class="container mx-auto p-6">
@@ -20,23 +21,28 @@
         <div id="siteStatus" class="hidden">
             <div class="bg-white p-6 rounded-lg shadow">
                 <h2 class="text-xl font-semibold mb-4">Your Website</h2>
-                <div id="siteCard" class="p-4 border rounded-lg">
-                    <div class="mb-4" style="width: 400px; height: 456px;">
-                        <img 
-                            id="siteImage" 
-                            class="w-full h-full object-cover rounded-lg"
-                            style="width: 400px; height: 456px;"
-                            onerror="this.src='https://via.placeholder.com/400x456'"
-                        />
-                    </div>
-                    <p class="text-lg font-medium mb-2" id="siteName"></p>
-                    <div class="flex space-x-4 mt-4">
-                        <button onclick="openWebsite()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded transition-colors duration-200">
-                            View Website
-                        </button>
-                        <button onclick="openEditor()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors duration-200">
-                            Edit in Duda
-                        </button>
+                <div class="w-[400px]">
+                    <div id="siteCard" class="border rounded-lg overflow-hidden">
+                        <div class="site-image-container">
+                            <img 
+                                id="siteImage" 
+                                class="site-image"
+                                onerror="this.src='https://via.placeholder.com/400x456'"
+                            />
+                        </div>
+                        <div class="p-4">
+                            <p class="text-lg font-medium mb-2" id="siteName"></p>
+                            <div class="flex space-x-4 mt-4">
+                                <button onclick="site.openWebsite()" 
+                                        class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded transition-colors duration-200">
+                                    View Website
+                                </button>
+                                <button onclick="site.openEditor()" 
+                                        class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors duration-200">
+                                    Edit in Duda
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,102 +51,23 @@
         <!-- Templates Grid -->
         <div id="templatesSection" class="hidden">
             <h2 class="text-xl font-semibold mb-6">Available Templates</h2>
-            <div id="templatesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div id="templatesGrid" class="templates-grid">
                 <!-- Templates will be loaded here -->
             </div>
         </div>
     </div>
 
-    <script>
-        let siteData = null;
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg flex flex-col items-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
+            <p class="text-gray-600 text-lg">Creating your website...</p>
+        </div>
+    </div>
 
-        async function checkSite() {
-            try {
-                const response = await fetch('/api/site');
-                const data = await response.json();
-
-                if (data.hasSite) {
-                    siteData = data;
-                    document.getElementById('siteStatus').classList.remove('hidden');
-                    document.getElementById('siteName').textContent = data.siteDetails.site_business_info.business_name;
-                    document.getElementById('siteImage').src = data.siteDetails.thumbnail_url || 'https://via.placeholder.com/400x456';
-                } else {
-                    // If no site exists, load and show templates
-                    loadTemplates();
-                }
-                document.getElementById('loading').classList.add('hidden');
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Failed to check site status');
-            }
-        }
-
-        async function loadTemplates() {
-            try {
-                const response = await fetch('/api/templates');
-                const templates = await response.json();
-
-                const templatesGrid = document.getElementById('templatesGrid');
-                templatesGrid.innerHTML = ''; // Clear existing templates
-
-                templates.forEach(template => {
-                    const card = document.createElement('div');
-                    card.className = 'border rounded-lg overflow-hidden shadow-lg bg-white';
-                    card.innerHTML = `
-                        <div style="height: 456px;">
-                            <img 
-                                src="${template.thumbnail_url || 'https://via.placeholder.com/400x456'}"
-                                alt="${template.template_name}"
-                                class="w-full h-full object-cover"
-                                onerror="this.src='https://via.placeholder.com/400x456'"
-                            />
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold mb-4">${template.template_name}</h3>
-                            <div class="flex space-x-4">
-                                <button 
-                                    onclick="window.open('${template.preview_url}', '_blank')"
-                                    class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded transition-colors duration-200"
-                                >
-                                    Preview
-                                </button>
-                                <button 
-                                    onclick="createSite('${template.template_id}')"
-                                    class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors duration-200"
-                                >
-                                    Create
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                    templatesGrid.appendChild(card);
-                });
-
-                document.getElementById('templatesSection').classList.remove('hidden');
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Failed to load templates');
-            }
-        }
-
-        function createSite(templateId) {
-            alert(`Create site with template ID: ${templateId}`);
-        }
-
-        function openWebsite() {
-            if (siteData && siteData.siteDetails.canonical_url) {
-                window.open(siteData.siteDetails.canonical_url, '_blank');
-            }
-        }
-
-        function openEditor() {
-            if (siteData && siteData.siteDetails.overview_site_url) {
-                window.open(siteData.siteDetails.overview_site_url, '_blank');
-            }
-        }
-
-        // Check site on page load
-        checkSite();
-    </script>
+    <script src="/js/site.js"></script>
+    <script src="/js/create.js"></script>
+    <script src="/js/templates.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
