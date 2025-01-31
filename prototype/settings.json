@@ -3,6 +3,7 @@
     "userID": "samuelgfenton@gmail.com",
     "channelCode": "samsRelaxingResort2",
     "defaultLanguage": "en",
+    "additionalLanguages": "[\"zh-tw\", \"zh\", \"de\", \"ko\", \"es\", \"th\", \"vi\"]",
     "propertyName": "Sams Relaxing Resort2",
     "colorHex": "#22C55E",
     "country": "Australia",

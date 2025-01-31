@@ -25,6 +25,9 @@ function hexToRgb(hex) {
     return `${r},${g},${b}`;
 }
 
+// Helper function for delay
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 // API endpoint to check for existing site
 app.get('/api/site', async (req, res) => {
     try {
@@ -88,6 +91,7 @@ app.post('/api/create-site', async (req, res) => {
     try {
         const { templateId } = req.body;
         
+        // 1. Create Site
         const createSiteData = {
             "site_data": {
                 "external_uid": settings.spid,
@@ -115,10 +119,10 @@ app.post('/api/create-site', async (req, res) => {
 
         const data = await response.json();
 
-        // Add a small delay to ensure site is ready
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Wait 500ms before next API call
+        await delay(500);
 
-        // Update the theme
+        // 2. Update the theme
         const themeData = {
             "colors": [
                 {
@@ -177,7 +181,10 @@ app.post('/api/create-site', async (req, res) => {
             throw new Error('Failed to update theme');
         }
 
-        // Update content
+        // Wait 500ms before next API call
+        await delay(500);
+
+        // 3. Update content
         const contentData = {
             "location_data": {
                 "address": {
@@ -252,6 +259,58 @@ app.post('/api/create-site', async (req, res) => {
 
         if (!contentResponse.ok) {
             throw new Error('Failed to update content');
+        }
+
+        // Wait 500ms before next API call
+        await delay(500);
+
+        // 4. Update room collection
+        const roomCollectionData = {
+            "external_details": {
+                "enabled": true,
+                "external_endpoint": `https://samuelgfenton.github.io/dudaTest/${settings.spid}/{lang}/roomsCollection.json`,
+                "page_item_url_field": "RoomId",
+                "custom_headers": []
+            }
+        };
+
+        const roomCollectionResponse = await fetch(`https://api-sandbox.duda.co/api/sites/multiscreen/${data.site_name}/collection/roomCollection`, {
+            method: 'PUT',
+            headers: {
+                ...authHeader,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(roomCollectionData)
+        });
+
+        if (!roomCollectionResponse.ok) {
+            throw new Error('Failed to update room collection');
+        }
+
+        // Wait 500ms before next API call
+        await delay(500);
+
+        // 5. Update property collection
+        const propertyCollectionData = {
+            "external_details": {
+                "enabled": true,
+                "external_endpoint": `https://samuelgfenton.github.io/dudaTest/${settings.spid}/{lang}/propertyCollection.json`,
+                "page_item_url_field": "Item",
+                "custom_headers": []
+            }
+        };
+
+        const propertyCollectionResponse = await fetch(`https://api-sandbox.duda.co/api/sites/multiscreen/${data.site_name}/collection/propertyCollection`, {
+            method: 'PUT',
+            headers: {
+                ...authHeader,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(propertyCollectionData)
+        });
+
+        if (!propertyCollectionResponse.ok) {
+            throw new Error('Failed to update property collection');
         }
 
         res.json({
