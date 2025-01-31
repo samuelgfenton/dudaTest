@@ -313,6 +313,28 @@ app.post('/api/create-site', async (req, res) => {
             throw new Error('Failed to update property collection');
         }
 
+        // Wait 500ms before next API call
+        await delay(500);
+
+        // 6. Update languages
+        const additionalLanguages = JSON.parse(settings.additionalLanguages);
+        const languagesData = {
+            "additionalLanguages": additionalLanguages
+        };
+
+        const languagesResponse = await fetch(`https://api-sandbox.duda.co/api/sites/multiscreen/update/${data.site_name}`, {
+            method: 'POST',
+            headers: {
+                ...authHeader,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(languagesData)
+        });
+
+        if (!languagesResponse.ok) {
+            throw new Error('Failed to update languages');
+        }
+
         res.json({
             success: true,
             data: data
