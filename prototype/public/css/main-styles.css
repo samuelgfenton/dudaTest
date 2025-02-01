@@ -27,3 +27,24 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+.sidebar-container {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-container img:last-child {
+    min-height: calc(100vh - 240px);
+    object-fit: fill;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+}

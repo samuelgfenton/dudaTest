@@ -4,55 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Websites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/main-styles.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        .heading-font {
+            font-family: 'Noto Sans', Helvetica, sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-white">
-    <div class="container mx-auto p-6">
-        <h1 class="text-3xl font-bold mb-8">Websites</h1>
-        
-        <!-- Loading State -->
-        <div id="loading" class="flex flex-col items-center justify-center py-20">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
-            <p class="text-gray-600 text-lg">Loading...</p>
+<body class="bg-white m-0 p-0">
+    <img src="/images/header.png" alt="SiteMinder Header" class="w-full block">
+    
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="sidebar-container">
+            <img src="/images/sidebar.png" alt="Sidebar" class="w-[240px] block">
+            <img src="/images/undersidebar.png" alt="Under Sidebar" class="w-[240px] block flex-grow">
         </div>
 
-        <!-- Site Status -->
-        <div id="siteStatus" class="hidden">
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h2 class="text-xl font-semibold mb-4">Your Website</h2>
-                <div class="w-[400px]">
-                    <div id="siteCard" class="border rounded-lg overflow-hidden">
-                        <div class="site-image-container">
-                            <img 
-                                id="siteImage" 
-                                class="site-image"
-                                onerror="this.src='https://via.placeholder.com/400x456'"
-                            />
-                        </div>
-                        <div class="p-4">
-                            <p class="text-lg font-medium mb-2" id="siteName"></p>
-                            <div class="flex space-x-4 mt-4">
-                                <button onclick="site.openWebsite()" 
-                                        class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded transition-colors duration-200">
-                                    View Website
-                                </button>
-                                <button onclick="site.openEditor()" 
-                                        class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors duration-200">
-                                    Edit in Duda
-                                </button>
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <h1 class="text-3xl mb-8 heading-font">Websites</h1>
+            
+            <!-- Loading State -->
+            <div id="loading" class="flex flex-col items-center justify-center py-20">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
+                <p id="loadingText" class="text-gray-600 text-lg heading-font">Loading...</p>
+            </div>
+
+            <!-- Site Status -->
+            <div id="siteStatus" class="hidden">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-xl mb-4 heading-font">Your Website</h2>
+                    <div class="w-[400px]">
+                        <div id="siteCard" class="border rounded-lg overflow-hidden">
+                            <div class="site-image-container">
+                                <img 
+                                    id="siteImage" 
+                                    class="site-image"
+                                    onerror="this.src='https://via.placeholder.com/400x456'"
+                                />
+                            </div>
+                            <div class="p-4">
+                                <p class="text-lg mb-2 heading-font" id="siteName"></p>
+                                <div class="flex space-x-4 mt-4">
+                                    <button onclick="site.openWebsite()" 
+                                            class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded transition-colors duration-200">
+                                        View Website
+                                    </button>
+                                    <button onclick="site.openEditor()" 
+                                            class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-colors duration-200">
+                                        Edit in Duda
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Templates Grid -->
-        <div id="templatesSection" class="hidden">
-            <h2 class="text-xl font-semibold mb-6">Available Templates</h2>
-            <div id="templatesGrid" class="templates-grid">
-                <!-- Templates will be loaded here -->
+            <!-- Error State -->
+            <div id="error" class="hidden flex flex-col items-center justify-center py-20">
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <div class="flex items-center">
+                        <div class="py-1">
+                            <svg class="h-6 w-6 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="heading-font">Error loading data</p>
+                            <p id="errorMessage" class="text-sm">Unable to fetch data. Please try again later.</p>
+                        </div>
+                    </div>
+                    <button onclick="templates.loadTemplates()" class="mt-3 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
+                        Try Again
+                    </button>
+                </div>
+            </div>
+
+            <!-- Templates Section -->
+            <div id="templatesSection" class="hidden">
+                <h2 class="text-xl mb-6 heading-font">Try another template...</h2>
+                <div id="templatesGrid" class="templates-grid">
+                    <!-- Templates will be loaded here -->
+                </div>
             </div>
         </div>
     </div>
@@ -61,13 +99,58 @@
     <div id="loadingOverlay" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
         <div class="bg-white p-8 rounded-lg flex flex-col items-center">
             <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
-            <p class="text-gray-600 text-lg">Creating your website...</p>
+            <p id="loadingMessage" class="text-gray-600 text-lg heading-font">Creating your website...</p>
         </div>
     </div>
 
-    <script src="/js/site.js"></script>
-    <script src="/js/create.js"></script>
-    <script src="/js/templates.js"></script>
-    <script src="/js/main.js"></script>
+    <!-- Load JavaScript files -->
+    <script src="/js/ui-site-handler.js"></script>
+    <script src="/js/ui-site-creator.js"></script>
+    <script src="/js/ui-template-handler.js"></script>
+    <script>
+        async function checkAndCreateAccount() {
+            try {
+                // Show loading state
+                document.getElementById('loading').classList.remove('hidden');
+                document.getElementById('loadingText').textContent = 'Checking account...';
+                
+                // Check if account exists
+                const checkResponse = await fetch('/api/account/check');
+                if (!checkResponse.ok) {
+                    throw new Error('Failed to check account status');
+                }
+                const checkData = await checkResponse.json();
+                
+                if (!checkData.exists) {
+                    document.getElementById('loadingText').textContent = 'Creating account...';
+                    const createResponse = await fetch('/api/account/create', {
+                        method: 'POST'
+                    });
+                    
+                    if (!createResponse.ok) {
+                        throw new Error('Failed to create account');
+                    }
+
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
+                
+                // Hide loading before loading templates
+                document.getElementById('loading').classList.add('hidden');
+                
+                // Now fetch templates
+                await templates.loadTemplates();
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('error').classList.remove('hidden');
+                document.getElementById('errorMessage').textContent = error.message || 'Failed to initialize account. Please try again.';
+            }
+        }
+
+        // Make sure all scripts are loaded before starting
+        window.addEventListener('load', () => {
+            checkAndCreateAccount();
+        });
+    </script>
 </body>
 </html>
