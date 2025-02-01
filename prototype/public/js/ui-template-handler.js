@@ -32,23 +32,21 @@ const templates = {
 
                 otherTemplates.forEach(template => {
                     const card = document.createElement('div');
-                    card.className = 'border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white';
+                    card.className = 'template-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300';
                     card.innerHTML = `
-                        <div class="w-[400px]">
-                            <div style="width: 400px; height: 456px;">
-                                <img 
-                                    src="${template.thumbnail_url || 'https://via.placeholder.com/400x456'}"
-                                    alt="${template.template_name}"
-                                    class="w-full h-full object-cover"
-                                    onerror="this.src='https://via.placeholder.com/400x456'"
-                                />
-                            </div>
-                            <div class="p-4">
-                                <h3 class="text-lg truncate mb-4 heading-font">${template.template_name}</h3>
+                        <div class="bg-blue-50">
+                            <img 
+                                src="${template.thumbnail_url || 'https://via.placeholder.com/400x456'}"
+                                alt="${template.template_name}"
+                                class="w-full h-[456px] object-cover"
+                                onerror="this.src='https://via.placeholder.com/400x456'"
+                            />
+                            <div class="px-4 py-3">
+                                <h3 class="text-lg truncate mb-3 heading-font">${template.template_name}</h3>
                                 <div class="flex space-x-4">
                                     <button 
                                         onclick="templates.previewTemplate('${template.preview_url}')"
-                                        class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded transition-colors duration-200"
+                                        class="flex-1 bg-white hover:bg-gray-50 text-blue-500 border border-blue-500 py-2 px-4 rounded transition-colors duration-200"
                                     >
                                         Preview
                                     </button>
@@ -78,23 +76,21 @@ const templates = {
                 
                 templates.forEach(template => {
                     const card = document.createElement('div');
-                    card.className = 'border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white';
+                    card.className = 'template-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300';
                     card.innerHTML = `
-                        <div class="w-[400px]">
-                            <div style="width: 400px; height: 456px;">
-                                <img 
-                                    src="${template.thumbnail_url || 'https://via.placeholder.com/400x456'}"
-                                    alt="${template.template_name}"
-                                    class="w-full h-full object-cover"
-                                    onerror="this.src='https://via.placeholder.com/400x456'"
-                                />
-                            </div>
-                            <div class="p-4">
-                                <h3 class="text-lg truncate mb-4 heading-font">${template.template_name}</h3>
+                        <div class="bg-blue-50">
+                            <img 
+                                src="${template.thumbnail_url || 'https://via.placeholder.com/400x456'}"
+                                alt="${template.template_name}"
+                                class="w-full h-[456px] object-cover"
+                                onerror="this.src='https://via.placeholder.com/400x456'"
+                            />
+                            <div class="px-4 py-3">
+                                <h3 class="text-lg truncate mb-3 heading-font">${template.template_name}</h3>
                                 <div class="flex space-x-4">
                                     <button 
                                         onclick="templates.previewTemplate('${template.preview_url}')"
-                                        class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded transition-colors duration-200"
+                                        class="flex-1 bg-white hover:bg-gray-50 text-blue-500 border border-blue-500 py-2 px-4 rounded transition-colors duration-200"
                                     >
                                         Preview
                                     </button>
@@ -125,6 +121,14 @@ const templates = {
 
     async switchTemplate(siteName, templateId) {
         try {
+            const confirmed = confirm(
+                "Warning: Switching templates will permanently remove any customizations you have made to your current website. Are you sure you want to continue?"
+            );
+
+            if (!confirmed) {
+                return; // User cancelled the operation
+            }
+
             document.getElementById('loadingOverlay').classList.remove('hidden');
             document.getElementById('loadingMessage').textContent = 'Switching template...';
 

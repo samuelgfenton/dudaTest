@@ -26,7 +26,8 @@
 
         <!-- Main Content -->
         <div class="flex-1 p-6">
-            <h1 class="text-3xl mb-8 heading-font">Websites</h1>
+            <h1 class="text-3xl mb-3 heading-font">Websites</h1>
+            <p class="text-gray-600 mb-8">Give your property a web presence with SiteMinder Websites. A website can be an amazing tool to drive direct reservations saving you on OTA commissions as well as giving guests a place where they can get more information about your property.</p>
             
             <!-- Loading State -->
             <div id="loading" class="flex flex-col items-center justify-center py-20">
@@ -36,22 +37,20 @@
 
             <!-- Site Status -->
             <div id="siteStatus" class="hidden">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h2 class="text-xl mb-4 heading-font">Your Website</h2>
-                    <div class="w-[400px]">
-                        <div id="siteCard" class="border rounded-lg overflow-hidden">
-                            <div class="site-image-container">
-                                <img 
-                                    id="siteImage" 
-                                    class="site-image"
-                                    onerror="this.src='https://via.placeholder.com/400x456'"
-                                />
-                            </div>
-                            <div class="p-4">
-                                <p class="text-lg mb-2 heading-font" id="siteName"></p>
-                                <div class="flex space-x-4 mt-4">
+                <h2 class="text-xl mb-4 heading-font">Your Website</h2>
+                <div class="template-card">
+                    <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-blue-50">
+                            <img 
+                                id="siteImage" 
+                                class="w-full h-[456px] object-cover"
+                                onerror="this.src='https://via.placeholder.com/400x456'"
+                            />
+                            <div class="px-4 py-3">
+                                <p class="text-lg mb-3 heading-font" id="siteName"></p>
+                                <div class="flex space-x-4">
                                     <button onclick="site.openWebsite()" 
-                                            class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded transition-colors duration-200">
+                                            class="flex-1 bg-white hover:bg-gray-50 text-blue-500 border border-blue-500 py-2 px-4 rounded transition-colors duration-200">
                                         View Website
                                     </button>
                                     <button onclick="site.openEditor()" 
@@ -61,6 +60,12 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="mt-4 flex items-center">
+                        <input type="checkbox" id="autoRepublish" class="h-4 w-4 text-blue-500 rounded border-gray-300 focus:ring-blue-500">
+                        <label for="autoRepublish" class="ml-2 text-gray-600">
+                            Automatically republish website when property configuration changes
+                        </label>
                     </div>
                 </div>
             </div>
