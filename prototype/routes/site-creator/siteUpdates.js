@@ -202,7 +202,30 @@ async function updateCollections(siteName, settings) {
 
 async function updateLanguages(siteName, settings) {
     try {
-        // Parse only if it's a string, otherwise use as is
+        // First set the default language
+        console.log('Setting default language:', settings.defaultLanguage);
+        const defaultLanguageResponse = await fetch(`https://api-sandbox.duda.co/api/sites/multiscreen/update/${siteName}`, {
+            method: 'POST',
+            headers: {
+                ...authHeader,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "lang": settings.defaultLanguage
+            })
+        });
+
+        const defaultLangResponseText = await defaultLanguageResponse.text();
+        console.log('Default language update response status:', defaultLanguageResponse.status);
+        console.log('Default language update response:', defaultLangResponseText);
+
+        if (!defaultLanguageResponse.ok) {
+            throw new Error(`Failed to update default language. Status: ${defaultLanguageResponse.status}. Response: ${defaultLangResponseText}`);
+        }
+
+        await delay(500);
+
+        // Then update additional languages
         const additionalLanguages = typeof settings.additionalLanguages === 'string' 
             ? JSON.parse(settings.additionalLanguages)
             : settings.additionalLanguages;
@@ -230,7 +253,7 @@ async function updateLanguages(siteName, settings) {
         console.log('Languages update response body:', responseText);
 
         if (!languagesResponse.ok) {
-            throw new Error(`Failed to update languages. Status: ${languagesResponse.status}. Response: ${responseText}`);
+            throw new Error(`Failed to update additional languages. Status: ${languagesResponse.status}. Response: ${responseText}`);
         }
 
         return languagesResponse.status === 204 || !responseText.trim() 
@@ -240,6 +263,7 @@ async function updateLanguages(siteName, settings) {
         console.error('Language update error details:', {
             error: error.message,
             siteName: siteName,
+            defaultLanguage: settings.defaultLanguage,
             additionalLanguages: settings.additionalLanguages
         });
         throw new Error(`Failed to update languages: ${error.message}`);
