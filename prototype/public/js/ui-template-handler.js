@@ -107,7 +107,9 @@ const templates = {
                     templatesGrid.appendChild(card);
                 });
 
-                document.getElementById('templatesSection').classList.remove('hidden');
+                const templateSection = document.getElementById('templatesSection');
+                templateSection.classList.remove('hidden');
+                templateSection.querySelector('h2').textContent = 'Create from one of our templates';
             }
         } catch (error) {
             console.error('Error:', error);
@@ -126,9 +128,10 @@ const templates = {
             );
 
             if (!confirmed) {
-                return; // User cancelled the operation
+                return;
             }
 
+            console.log('Switching template:', { siteName, templateId });
             document.getElementById('loadingOverlay').classList.remove('hidden');
             document.getElementById('loadingMessage').textContent = 'Switching template...';
 
@@ -143,21 +146,22 @@ const templates = {
                 })
             });
 
+            const data = await response.json();
+            console.log('Switch template response:', data);
+
             if (!response.ok) {
-                throw new Error('Failed to switch template');
+                throw new Error(data.error || `Failed to switch template (Status: ${response.status})`);
             }
 
-            const result = await response.json();
-            
-            if (result.success) {
+            if (data.success) {
                 window.location.reload();
             } else {
-                throw new Error(result.error || 'Failed to switch template');
+                throw new Error(data.error || 'Failed to switch template');
             }
         } catch (error) {
             console.error('Error switching template:', error);
             document.getElementById('loadingOverlay').classList.add('hidden');
-            alert('Failed to switch template. Please try again.');
+            alert(error.message || 'Failed to switch template. Please try again.');
         }
     }
 };

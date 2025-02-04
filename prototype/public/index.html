@@ -15,7 +15,14 @@
     </style>
 </head>
 <body class="bg-white m-0 p-0">
-    <img src="/images/header.png" alt="SiteMinder Header" class="w-full block">
+    <div class="relative">
+        <img src="/images/header.png" alt="SiteMinder Header" class="w-full block">
+        <div class="absolute right-4 top-4 z-10">
+            <select id="propertySelector" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+    </div>
     
     <div class="flex">
         <!-- Sidebar -->
@@ -27,7 +34,7 @@
         <!-- Main Content -->
         <div class="flex-1 p-6">
             <h1 class="text-3xl mb-3 heading-font">Websites</h1>
-            <p class="text-gray-600 mb-8">Give your property a web presence with SiteMinder Websites. A website can be an amazing tool to drive direct reservations saving you on OTA commissions as well as giving guests a place where they can get more information about your property.</p>
+            <p class="text-gray-600 mb-8">Turn your property into an unforgettable online destination. A professional website helps you showcase your unique accommodations, amenities, and experiences directly to potential guests. With your own digital storefront, you'll have complete control over your brand story, can display high-quality photos, and provide real-time booking capabilities—all while reducing commission costs from third-party sites. Whether you're an intimate boutique hotel or a full-service resort, a dedicated website builds credibility, increases direct bookings, and helps you stand out in today's competitive hospitality market.</p>
             
             <!-- Loading State -->
             <div id="loading" class="flex flex-col items-center justify-center py-20">
@@ -109,6 +116,7 @@
     </div>
 
     <!-- Load JavaScript files -->
+    <script src="/js/property-selector.js"></script>
     <script src="/js/ui-site-handler.js"></script>
     <script src="/js/ui-site-creator.js"></script>
     <script src="/js/ui-template-handler.js"></script>
@@ -154,6 +162,7 @@
 
         // Make sure all scripts are loaded before starting
         window.addEventListener('load', () => {
+            propertySelector.loadProperties();
             checkAndCreateAccount();
         });
     </script>
