@@ -1,23 +1,9 @@
 {
-    "userID": "samuelgfenton@gmail.coom",
-    "firstName": "Sam",
+    "userID": "inarahFenton@gmail.coom",
+    "firstName": "Inarah",
     "lastName": "Fenton",
     "permissions": [
-        "STATS_TAB",
-        "EDIT",
-        "ADD_FLEX",
-        "PUBLISH",
-        "REPUBLISH",
-        "INSITE",
-        "SEO",
-        "BACKUPS",
-        "CUSTOM_DOMAIN",
-        "RESET",
-        "PUSH_NOTIFICATIONS",
-        "LIMITED_EDITING",
-        "CONTENT_LIBRARY",
-        "AI_ASSISTANT",
-        "SEO_OVERVIEW"
+        "STATS_TAB"
     ],
     "properties": [
         {
