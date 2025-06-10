@@ -14,3 +14,9 @@ https://samuelgfenton.github.io/dudaTest/309b5a46-726a-49ca-955c-fcb94671e566-V1
 Spanish
 
 https://samuelgfenton.github.io/dudaTest/309b5a46-726a-49ca-955c-fcb94671e566-V1/es/propertyCollection.json
+
+
+
+Booking engine script
+
+https://samuelgfenton.github.io/dudaTest/bookNow/siteminder_script.js

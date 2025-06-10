@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Demo - Siteminder Booking Engine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 200vh; /* Make page scrollable to test floating button */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .feature {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .scroll-indicator {
+            text-align: center;
+            margin: 100px 0;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .scroll-indicator h2 {
+            margin-bottom: 20px;
+        }
+        
+        .scroll-indicator p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🏖️ Paradise Resort & Spa</h1>
+            <p>Experience luxury and tranquility in our world-class resort</p>
+            <p><strong>Look for the floating booking button in the bottom right corner!</strong></p>
+        </div>
+        
+        <div class="scroll-indicator">
+            <h2>📋 How to Install This Booking Engine</h2>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: left; margin: 20px 0;">
+                <h3>Step 1: No Download Required!</h3>
+                <p>The script is hosted on GitHub Pages - no need to download files.</p>
+                
+                <h3>Step 2: Add One Line to Your HTML</h3>
+                <p>Add this script tag before the closing <code>&lt;/body&gt;</code> tag:</p>
+                <pre style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">&lt;script src="https://samuelgfenton.github.io/dudaTest/bookNow/siteminder_script.js" 
+        data-booking-url="https://your-booking-engine-url.com"&gt;&lt;/script&gt;</pre>
+                
+                <h3>Step 3: Customize (Optional)</h3>
+                <p>Add these attributes to customize the button:</p>
+                <pre style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">&lt;script src="https://samuelgfenton.github.io/dudaTest/bookNow/siteminder_script.js" 
+        data-booking-url="https://your-booking-engine-url.com"
+        data-button-text="Reserve Now"
+        data-button-color="#e53e3e"
+        data-header-color="#2d3748"&gt;&lt;/script&gt;</pre>
+                
+                <h3>Configuration Options:</h3>
+                <ul style="text-align: left;">
+                    <li><strong>data-booking-url</strong>: Your Siteminder booking engine URL (required)</li>
+                    <li><strong>data-button-text</strong>: Button text (optional, defaults to "Book Now")</li>
+                    <li><strong>data-button-color</strong>: Button background color (optional)</li>
+                    <li><strong>data-header-color</strong>: Popup header color (optional)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🌊 Ocean Views</h3>
+                <p>Wake up to breathtaking views of crystal clear waters and pristine beaches right from your room.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🍽️ Gourmet Dining</h3>
+                <p>Indulge in world-class cuisine prepared by our award-winning chefs using fresh local ingredients.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>💆‍♀️ Luxury Spa</h3>
+                <p>Rejuvenate your body and soul with our comprehensive spa treatments and wellness programs.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🏊‍♂️ Premium Amenities</h3>
+                <p>Enjoy our infinity pool, fitness center, tennis court, and exclusive beach club access.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🎯 Activities</h3>
+                <p>From water sports to cultural excursions, we offer endless opportunities for adventure and relaxation.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🏆 5-Star Service</h3>
+                <p>Our dedicated concierge team is available 24/7 to ensure your stay exceeds all expectations.</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <h2>🖱️ Test the Floating Button</h2>
+            <p>Scroll up and down this page to see how the booking button stays fixed in the bottom right corner. Click it to see the booking engine in action!</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🌅 Sunset Experiences</h3>
+                <p>Don't miss our famous sunset cocktail cruises and beachfront dining experiences.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🛏️ Luxurious Rooms</h3>
+                <p>Each room is thoughtfully designed with premium amenities and stunning views.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🎉 Special Events</h3>
+                <p>Perfect venue for weddings, corporate retreats, and special celebrations.</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <h2>📱 Mobile Responsive</h2>
+            <p>The booking engine works perfectly on all devices - desktop, tablet, and mobile!</p>
+        </div>
+    </div>
+
+    <!-- Siteminder Booking Engine Integration -->
+    <!-- This demonstrates the script hosted externally -->
+    <script src="https://samuelgfenton.github.io/dudaTest/bookNow/siteminder_script.js" 
+            data-booking-url="https://book-directonline.com/properties/SamFentonsRelaxingResort"
+            data-button-text="Book Now"
+            data-button-color="#088488"
+            data-header-color="#088488"></script>
+</body>
+</html>
