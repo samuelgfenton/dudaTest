@@ -3,7 +3,10 @@
     "firstName": "Inarah",
     "lastName": "Fenton",
     "permissions": [
-        "STATS_TAB"
+        "STATS_TAB",
+        "EDIT",
+        "PUBLISH",
+        "REPUBLISH"
     ],
     "properties": [
         {
