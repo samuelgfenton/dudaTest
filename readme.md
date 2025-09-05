@@ -20,3 +20,5 @@ https://samuelgfenton.github.io/dudaTest/309b5a46-726a-49ca-955c-fcb94671e566-V1
 Booking engine script
 
 https://samuelgfenton.github.io/dudaTest/bookNow/siteminder_script.js
+https://samuelgfenton.github.io/dudaTest/bookNow/demo_html_file.html
+https://samuelgfenton.github.io/dudaTest/bookNow/demo_html_file_groups.html
